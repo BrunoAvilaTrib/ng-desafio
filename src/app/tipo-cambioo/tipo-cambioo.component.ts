@@ -29,6 +29,7 @@ export class TipoCambiooComponent implements OnInit {
   ngOnInit(): void {
     this.buttonClicked = false
     this.isFormValid = this.monedaOrigen && this.monedaDestino && this.monto;
+    this.getList();
 
   }
   validateForm() {
