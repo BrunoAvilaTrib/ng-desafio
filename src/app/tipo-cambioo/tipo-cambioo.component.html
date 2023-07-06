@@ -29,6 +29,7 @@
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Conversion</button>
     <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Actualizar tipo de cambio</button>
+    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Agregar nueva divisa</button>
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -97,16 +98,35 @@
       </div>
       </div>
 
-
-    <div
-    *ngIf="this.buttonClicked2 == true"
-    class="container">
-    </div>
   </div>
 
 
 
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <div class="container">
+      <h2>Agregar nueva divisa</h2>
+
+      <div class="form-group">
+        <label for="monedaOrigen">Moneda Origen:</label>
+        <input type="text" class="form-control" id="monedaOrigen" [(ngModel)]="monedaOrigen" (input)="validateFormTab2()">
+
+      </div>
+      <div class="form-group">
+        <label for="monedaDestino">Moneda Destino:</label>
+        <input type="text" class="form-control" id="monedaDestino" [(ngModel)]="monedaDestino" (input)="validateFormTab2()">
+      </div>
+
+      <div class="form-group">
+        <label for="nuevoTipoCambio">Tipo de cambio:</label>
+        <input type="number" class="form-control" id="nuevoTipoCambio" [(ngModel)]="nuevoTipoCambio" (input)="validateFormTab2()">
+      </div>
+
+      <div class="text-center" style="margin-top: 20px;">
+        <button class="btn btn-primary mx-2" (click)="addValueTolist()" [disabled]="!isFormValid2">Actualizar Tipo de cambio</button>
+        <button class="btn btn-secondary mx-2" (click)="clear2()">Limpiar</button>
+      </div>
+      </div>
+  </div>
 </div>
 
 

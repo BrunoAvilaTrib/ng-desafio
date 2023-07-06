@@ -86,6 +86,21 @@ export class TipoCambiooComponent implements OnInit {
     this.getList()
   }
 
+  addValueTolist(){
+
+    const jsonFactory = {
+      valorTipoCambio : this.nuevoTipoCambio,
+      monedaOrigen: this.monedaOrigen,
+      monedaDestino: this.monedaDestino,
+    }
+
+    this.tipoCambioService.addValueTolist(jsonFactory).subscribe(
+      (data) => {
+        this.getList()
+      }) ;
+
+  }
+
   getList(){
     this.tipoCambioService.getList().subscribe(
       (data) => {

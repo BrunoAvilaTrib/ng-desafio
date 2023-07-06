@@ -30,4 +30,8 @@ export class TipoCambioService {
   public addList(): Observable<any> {
     return this.httpClient.get<any>(  `${this.API_BASE}/addCurrencyValues`);
   }
+
+  public addValueTolist(formRequest: any): Observable<any> {
+    return this.httpClient.post<any>(  `${this.API_BASE}/addCurrencyValues`, formRequest);
+  }
 }
