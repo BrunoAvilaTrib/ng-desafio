@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { TipoCambioService } from './tipo-cambio.service';
 
 @Component({
+
   selector: 'app-tipo-cambioo',
-  templateUrl: './tipo-cambioo.component.html',
-  styleUrls: ['./tipo-cambioo.component.css']
+  templateUrl: './tipo-cambio.component.html',
+  styleUrls: ['./tipo-cambio.component.css'],
+
 })
-export class TipoCambiooComponent implements OnInit {
+export class TipoCambioComponent implements OnInit {
 
   monto: any;
   monedaOrigen: string;
