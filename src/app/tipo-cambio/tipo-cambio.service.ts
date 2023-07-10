@@ -17,41 +17,30 @@ export class TipoCambioService {
     ) { }
 
 
-    private getHeaders(): HttpHeaders {
-      // Obtener el token del LocalStorage
-      const token = this.authStorage.getToken();
-
-      // Crear los encabezados
-      const headers = new HttpHeaders({
-        Authorization: `Bearer ${token}`
-      });
-
-      return headers;
-    }
 
 
   public getChange(formRequest: any): Observable<any> {
-    const headers = this.getHeaders();
-    return this.httpClient.post<any>( `${this.API_BASE}/applyCurrencyChange`, formRequest , { headers });
+    return this.httpClient.post<any>( `${this.API_BASE}/applyCurrencyChange`, formRequest );
+
   }
 
   public updateTypeChange(formRequest: any): Observable<any> {
-    const headers = this.getHeaders();
-    return this.httpClient.post<any>( `${this.API_BASE}/updateCurrencyValues`, formRequest , { headers });
+    return this.httpClient.post<any>( `${this.API_BASE}/updateCurrencyValues`, formRequest );
+
   }
 
   public getList(): Observable<any> {
-    const headers = this.getHeaders();
-    return this.httpClient.get<any>(  `${this.API_BASE}/getList`, { headers });
+    return this.httpClient.get<any>(  `${this.API_BASE}/getList`);
+
   }
 
   public addList(): Observable<any> {
-    const headers = this.getHeaders();
-    return this.httpClient.get<any>(  `${this.API_BASE}/addCurrencyValues`, { headers });
+    return this.httpClient.get<any>(  `${this.API_BASE}/addCurrencyValues`);
+
   }
 
   public addValueTolist(formRequest: any): Observable<any> {
-    const headers = this.getHeaders();
-    return this.httpClient.post<any>(  `${this.API_BASE}/addCurrencyValues`, formRequest , { headers });
+    return this.httpClient.post<any>(  `${this.API_BASE}/addCurrencyValues`, formRequest );
+
   }
 }

@@ -3,3 +3,13 @@
   margin: 0 auto;
   padding: 20px;
 }
+
+
+.btn-logout {
+  right: 20px;
+}
+
+.btn-logout.move-left {
+  right: auto;
+  left: 20px;
+}

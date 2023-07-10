@@ -34,10 +34,20 @@ export class LoginComponent implements OnInit {
     private router: Router,
 
 
+
   ) { }
 
   ngOnInit(): void {
+
+    console.log(this.authStore.getToken() , this.router.url);
+
+    if (this.authStore.getToken() && this.router.url.includes('/login')){
+      this.router.navigate(['cambio']);
+    }
+
     this.initialForm();
+
+
   }
 
   initialForm(): void {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TipoCambioService } from './tipo-cambio.service';
+import { UtilService } from '../services/util.service';
+import { Router } from '@angular/router';
 
 @Component({
 
@@ -26,13 +28,17 @@ export class TipoCambioComponent implements OnInit {
 
   constructor(
     private tipoCambioService : TipoCambioService,
+    private router: Router,
+
   ) { }
 
   ngOnInit(): void {
+
+    // this.addlist();
+    this.getList();
     this.buttonClicked = false
     this.isFormValid = this.monedaOrigen && this.monedaDestino && this.monto;
-    this.addlist();
-    this.getList();
+
 
   }
   validateForm() {
@@ -80,13 +86,14 @@ export class TipoCambioComponent implements OnInit {
     )
   }
 
-  addlist(){
-    this.tipoCambioService.addList().subscribe(
-      (data) => {
-      }) ;
-    this.showList = true;
-    this.getList()
-  }
+  // addlist(){
+  //   this.tipoCambioService.addList().subscribe(
+  //     (data) => {
+  //       this.getList()
+  //     }) ;
+  //   this.showList = true;
+
+  // }
 
   addValueTolist(){
 
@@ -124,6 +131,11 @@ export class TipoCambioComponent implements OnInit {
     this.nuevoTipoCambio = ""
     this.monedaOrigen = ""
     this.monedaDestino = ""
+  }
+
+  logout(){
+    UtilService.almacenamiento.limpiar('session');
+    this.router.navigate(['/login']);
   }
 
 }

@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { TipoCambioComponent } from './tipo-cambio/tipo-cambio.component';
+import { ApiInterceptor } from './interceptors/api.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { TipoCambioComponent } from './tipo-cambio/tipo-cambio.component';
     RxReactiveFormsModule
   ],
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
